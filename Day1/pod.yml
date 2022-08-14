@@ -3,7 +3,7 @@ kind: Pod
 metadata:
  name: myfirstpod
  labels:
-  app: myFirstPod
+  app: myFirstpod
   type: network 
 spec:
  containers:
