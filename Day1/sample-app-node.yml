@@ -7,4 +7,7 @@ metadata:
 spec:
  containers:
   - name: sample-app
-    image: emanfeah/sample-app
+    image: saurabhd2106/sample-node-app
+
+
+
