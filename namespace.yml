@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+ namespace: prod
  name: prod 
  labels:
   name: prod
