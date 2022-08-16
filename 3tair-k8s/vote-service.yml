@@ -1,16 +1,16 @@
-apiVersion: v1
-kind: Service #service or deployment
+apiVersion: v1 # use a version 1 to create obj
+kind: Service #kind of object we are created (Pod,service,deployment..)
 metadata:
-  name: vote-service #name of service .
+  name: vote-service #name of obj or service.
   labels:
     app: voting-app
-spec:
-  type: NodePort #use to 
-  ports:
-    - name: http
-      port: 80 #This is a serive port
-      targetPort: 80 #This is the target port of the pods
-      nodePort: 32000 #This port is enable on node to send the traffic
+spec: #specification what a status and commponent we need in this obj
+  type: NodePort #which service we user here external Make the service externally visible via the node
+  ports: #expose the port num at networklevel by services 
+    - name: http #name of the port that we expose
+      port: 80 #This is a serive port,Inside the cluster, what port does the service expose?
+      targetPort: 80 #This is the target port of the pods  ,Which port do pods selected by this service expose
+      nodePort: 32000 #This port is enable on node to send the traffic # Which port on the node is the service available through?
       protocol: TCP
-  selector:
+  selector: #link 
       app: vote
