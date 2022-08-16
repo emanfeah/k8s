@@ -10,7 +10,7 @@ spec:
   - name: http 
     port: 80 # this service port
     targetPort: 80 #the port of you container or targetport of the pods
-    NodePort: 32000 # the port that enable in node to send to traffict
+    nodePort: 32000 # the port that enable in node to send to traffict
  selector: #to link the lable from deployment.yml in nginx.yml
     app: nginx
      
