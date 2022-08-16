@@ -11,6 +11,7 @@ spec:
     port: 80 # this service port
     targetPort: 80 #the port of you container or targetport of the pods
     nodePort: 32000 # the port that enable in node to send to traffict
+    protocol: TCP
  selector: #to link the lable from deployment.yml in nginx.yml
     app: nginx
      
