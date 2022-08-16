@@ -14,6 +14,5 @@ spec:
  selector: #to link the lable from deployment.yml in nginx.yml
   matchLabels:
     app: nginx
-    type: frontend
      
 
