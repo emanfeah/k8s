@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment #first apply or create a deployment
+metadata:
+  name: vote # name of deployment service
+  labels:
+    app: voting-app # just a lable to fillter
+spec:
+  replicas: 1 # create replica 
+  selector:
+    matchLabels: #link 
+      app: vote
+  template:
+    metadata:
+      labels:
+        app: vote
+    spec:
+      containers:
+        - image: mshaikh911/vote # must run and push img in dockerhub
+          name: vote
+          ports:
+          - containerPort: 80
