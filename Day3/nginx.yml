@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service 
+metadata:
+ name: nginx-service
+ labels:
+   app: nginx-service
+spec:
+ type: NodePort # access to the world
+ ports: 
+  - name: http 
+    port: 80 # this service port
+    targetPort: 80 #the port of you container or targetport of the pods
+    NodePort: 32000 # the port that enable in node to send to traffict
+ selector: #to link the lable from deployment.yml in nginx.yml
+  matchLabels:
+    app: nginx
+    type: frontend
+     
+
