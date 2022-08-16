@@ -3,7 +3,7 @@ kind: Deployment #first apply or create a deployment
 metadata:
   name: vote # name of deployment service
   labels:
-    app: voting-app # just a lable to fillter
+    app: vote # just a lable to fillter
 spec:
   replicas: 1 # create replica 
   selector:
