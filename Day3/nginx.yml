@@ -12,7 +12,6 @@ spec:
     targetPort: 80 #the port of you container or targetport of the pods
     NodePort: 32000 # the port that enable in node to send to traffict
  selector: #to link the lable from deployment.yml in nginx.yml
-  matchLabels:
     app: nginx
      
 
