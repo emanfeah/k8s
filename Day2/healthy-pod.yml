@@ -1,20 +1,33 @@
-apiVersion: v1 # api kubernetes version
-kind: Pod # kind of obj
+apiVersion: v1
+kind: Pod
 metadata:
-  name: healthy-pod #name of Pod 
+  name: healthy-pod
   labels:
-    app: goproxy #name of our app 
-spec: # the pod require a container 
+    app: healthy-pod
+    type: network
+spec:
   containers:
-  - name: healthy-container #name of our container
-    image: nginx #the img from dockerhub
-    livenessProbe:
-      initialDelaySeconds: 5
-      timeoutSeconds: 1
-      failureThreshold: 5
-      periodSeconds: 3
-    readinessProbe:
-      initialDelaySeconds: 5
-      timeoutSeconds: 1
-      failureThreshold: 7
-      periodSeconds: 3
+    - name: nginx
+      image: nginx
+      args:
+      - /bin/sh
+      - -c
+      - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600
+      livenessProbe:
+        exec:
+          command:
+          - cat
+          - /tmp/healthy
+        initialDelaySeconds: 5
+        periodSeconds: 3
+        timeoutSeconds: 1
+        failureThreshold: 5
+      readinessProbe:
+        exec:
+          command:
+          - cat
+          - /tmp/healthy
+        initialDelaySeconds: 5
+        periodSeconds: 3
+        timeoutSeconds: 1
+        failureThreshold: 7   
