@@ -22,4 +22,4 @@ spec:
       maxUnavailable: 2
   selector:
     matchLabels:
-      type: frontend
+      app: webshop
