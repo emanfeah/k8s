@@ -8,7 +8,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: my-first-pod
+      name: nginx-deploy
       labels:
         app: webshop
         service: nginx
