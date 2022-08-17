@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: nginx-deploy
   labels:
-    app: web
+    app: webshop
     type: frontend
 spec:
   template:
     metadata:
       name: my-first-pod
       labels:
-        app: nginx
+        app: webshop
         type: frontend
     spec:
       containers:
         - name: nginx
-          image: nginx:alpine
-  replicas: 3
+          image: nginx:1.8
+  replicas: 5
   selector:
     matchLabels:
       type: frontend

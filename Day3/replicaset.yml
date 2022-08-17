@@ -1,0 +1,27 @@
+#---------------file data---------------------------
+apiVersion: apps/v1 # kubernetes api version 
+kind: ReplicaSet #the obj is replica
+metadata: #information about the obj
+ name: frontend #this name of ReplicaSet
+ labels:
+  app: myapp #name of application 
+  tier: frontend #frontend,backend,..etc
+#---------data about pod replica,and how identify them----------
+spec:
+ replicas: 3 #how many of replica you want 
+ selector: # select our labels for ReplicaSet to monotor
+  matchLabels:
+   tier: frontend
+# ---------- data about our pod and replica --------------------
+ template: #template for our pod,inside a pod is 1 or more container
+  metadata:
+   labels:
+     tier: frontend
+  spec:
+   containers:
+   - name: php-redis
+     image: gcr.io/google_samples/gb-frontend:v3 
+    
+
+
+ 

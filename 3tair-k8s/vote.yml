@@ -4,18 +4,18 @@ metadata:
   name: vote # name of deployment service
   labels:
     app: vote # just a lable to fillter
-spec:
-  replicas: 1 # create replica 
-  selector:
-    matchLabels: #link 
+spec: #This field tells us that we are creating three replicas of our pods
+  replicas: 1 # num of rplica 
+  selector: #This tells the object how to find the pods it will manage.
+    matchLabels: #link the pod or find the pod 
       app: vote
-  template:
+  template: # It will look inside the pod template section and match the labels.
     metadata:
-      labels:
+      labels: #The pods have the label app: vote
         app: vote
-    spec:
+    spec: #This tells Kubernetes what to name our container
       containers:
-        - image: mshaikh911/vote # must run and push img in dockerhub
-          name: vote
-          ports:
-          - containerPort: 80
+        - image: mshaikh911/vote # Docker Hub , Kubernetes will pull this from there
+          name: vote #name of container
+          ports: # define the ports 
+          - containerPort: 80 #This exposes port 80 on the container. 

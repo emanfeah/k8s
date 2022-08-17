@@ -1,13 +1,13 @@
-apiVersion: v1
-kind: Pod
+apiVersion: v1 # api kubernetes version
+kind: Pod # kind of obj
 metadata:
-  name: healthy-pod
+  name: healthy-pod #name of Pod 
   labels:
-    app: goproxy
-spec:
+    app: goproxy #name of our app 
+spec: # the pod require a container 
   containers:
-  - name: healthy-pod
-    image: nginx
+  - name: healthy-container #name of our container
+    image: nginx #the img from dockerhub
     livenessProbe:
       initialDelaySeconds: 5
       timeoutSeconds: 1
