@@ -1,17 +1,15 @@
 #------------- create a presistent volume --------
 apiVersion: v1
-kind: PresistentVolume
+kind: PersistentVolume
 metadata:
- name: lap_pv
+  name: lab-pv
 spec:
- hostPath: # mounts adirectory from the host node's filesystem into your Pod.
-   path: /tmp/lab #this is path
- capacity:
-   storage: 2Gi
- accessModes:
-  - ReadWriteMany
- storageClassName: local-path #locally create a  PresistentVolume
-
- 
+  hostPath: # mounts adirectory from the host node's filesystem into your Pod.
+    path: /tmp/lab
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: local-path #locally create a  PresistentVolume
 
 
