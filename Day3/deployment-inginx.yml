@@ -4,19 +4,22 @@ metadata:
   name: nginx-deploy
   labels:
     app: webshop
-    type: frontend
+    service: nginx
 spec:
   template:
     metadata:
       name: my-first-pod
       labels:
         app: webshop
-        type: frontend
+        service: nginx
     spec:
       containers:
         - name: nginx
           image: nginx:1.8
   replicas: 5
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 2
   selector:
     matchLabels:
       type: frontend
