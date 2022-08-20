@@ -13,7 +13,11 @@ spec:
     metadata:
       labels:
         app: postgres
-    spec:
+    spec: #this pressint volume
+      volumes:
+        - name: postgres-pv-claim
+          persistentVolumeClaim:
+             claimName: postgres-pv-claim
       containers:
         - image: postgres
           name: postgres
@@ -26,3 +30,6 @@ spec:
             value: trust
           ports:
           - containerPort: 5432
+          volumeMounts: #Create persistent volumes to store the data for the Postgres database
+            - mountPath: /var/lib/postgresql/data
+              name: postgres-pv-claim
